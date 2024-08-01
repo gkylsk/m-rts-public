@@ -830,9 +830,11 @@ public class Character : MonoBehaviour {
 			{
 				animator.SetBool("Attacking", true);
 			}
+			CastleHealth castleHealth = castle.GetComponent<CastleHealth>();
 			if (castle != null)
 			{
 				castle.GetComponent<Castle>().lives -= Time.deltaTime * damage;
+				castleHealth.TakeDamage(Time.deltaTime * damage);
 			}
 
 			if (source.clip != attackAudio)
